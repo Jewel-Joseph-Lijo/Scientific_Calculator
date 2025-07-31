@@ -94,19 +94,26 @@ def plusclick():
     global result
     if text_input.get()=='':
         text_input.set('')
+    elif text_input.get()=='Error':
+        text_input.set('Error')
     else:
         text_input.set(text_input.get()+'+')
         result=False
 
 def minusclick():
     global result
-    text_input.set(text_input.get()+'-')  
+    if text_input.get()=='Error':
+        text_input.set('-')
+    else:
+        text_input.set(text_input.get()+'-')  
     result=False
 
 def mulclick():
     global result
     if text_input.get()=='':
         text_input.set('')
+    elif text_input.get()=='Error':
+        text_input.set('Error')
     else:
         text_input.set(text_input.get()+'x')
         result=False
@@ -115,6 +122,8 @@ def divclick():
     global result
     if text_input.get()=='':
         text_input.set('')
+    elif text_input.get()=='Error':
+        text_input.set('Error')
     else:
         text_input.set(text_input.get()+'÷')
         result=False
@@ -125,27 +134,39 @@ def equalclick():
     result_text1=result_text.replace('x','*')
     result_text2=result_text1.replace('÷','/')
     result_text3=result_text2.replace('^','**')
-    result_text4=eval(result_text3)
-    text_input.set(result_text4)
+    try:
+        result_text4=eval(result_text3)
+        text_input.set(result_text4)
+    except ZeroDivisionError:
+        text_input.set('Error')
     result=True
 
 def clearclick():
     text_input.set('')
 
 def delclick():
-    L1=list(text_input.get())
-    del L1[len(L1)-1]
-    str1=""
-    for i in L1:
-        str1+=i
-    text_input.set(str1) 
+    if text_input.get()=='Error':
+        text_input.set('')
+    else:
+        L1=list(text_input.get())
+        del L1[len(L1)-1]
+        str1=""
+        for i in L1:
+            str1+=i
+        text_input.set(str1) 
 
 def modclick():
     global result
-    modulus=text_input.get().replace('÷','%')
-    reminder=eval(modulus)
-    text_input.set(reminder)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        modulus=text_input.get().replace('÷','%')
+        try:
+            reminder=eval(modulus)
+            text_input.set(reminder)
+        except ZeroDivisionError:
+            text_input.set('Error')
+        result=True
 
 def piclick():
     global result
@@ -157,89 +178,128 @@ def piclick():
 
 def exclick():
     global result
-    ex_result=math.exp(eval(text_input.get()))
-    text_input.set(ex_result)
-    result=True   
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        ex_result=math.exp(eval(text_input.get()))
+        text_input.set(ex_result)
+        result=True   
 
 def log10clicked():
     global result
-    log_10=math.log10(eval(text_input.get()))
-    text_input.set(log_10)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        log_10=math.log10(eval(text_input.get()))
+        text_input.set(log_10)
+        result=True
 
 def logclicked():
     global result
-    log_e=math.log(eval(text_input.get()))
-    text_input.set(log_e)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        log_e=math.log(eval(text_input.get()))
+        text_input.set(log_e)
+        result=True
 
 def sinclick():
     global result
-    sinval=math.sin(eval(text_input.get()))
-    text_input.set(sinval)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        sinval=math.sin(eval(text_input.get()))
+        text_input.set(sinval)
+        result=True
 
 def cosclick():
     global result
-    cosval=math.cos(eval(text_input.get()))
-    text_input.set(cosval)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        cosval=math.cos(eval(text_input.get()))
+        text_input.set(cosval)
+        result=True
 
 def tanclick():
     global result
-    tanval=math.tan(eval(text_input.get())) 
-    text_input.set(tanval)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        tanval=math.tan(eval(text_input.get())) 
+        text_input.set(tanval)
+        result=True
 
 def cotclick():
     global result
-    sinval=math.sin(eval(text_input.get()))
-    cosval=math.cos(eval(text_input.get()))
-    cotval=cosval/sinval
-    text_input.set(cosval)
-    result=True        
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        sinval=math.sin(eval(text_input.get()))
+        cosval=math.cos(eval(text_input.get()))
+        cotval=cosval/sinval
+        text_input.set(cosval)
+        result=True        
 
 def cosecclick():
     global result
-    sinval=math.sin(eval(text_input.get()))
-    cosecval=1/sinval
-    text_input.set(cosecval)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        sinval=math.sin(eval(text_input.get()))
+        cosecval=1/sinval
+        text_input.set(cosecval)
+        result=True
 
 def secclick():
     global result
-    cosval=math.cos(eval(text_input.get()))
-    secval=1/cosval
-    text_input.set(secval)
-    result=True 
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        cosval=math.cos(eval(text_input.get()))
+        secval=1/cosval
+        text_input.set(secval)
+        result=True 
 
 def squareclick():
     global result
-    val=eval(text_input.get())
-    square=math.pow(val,2)
-    text_input.set(square)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        val=eval(text_input.get())
+        square=math.pow(val,2)
+        text_input.set(square)
+        result=True
 
 def cubeclick():
     global result
-    val=eval(text_input.get())
-    cube=math.pow(val,3)
-    text_input.set(cube)
-    result=True   
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        val=eval(text_input.get())
+        cube=math.pow(val,3)
+        text_input.set(cube)
+        result=True   
 
 def inv_powerclick():
     global result
-    val=eval(text_input.get())
-    inv_power=math.pow(val,-1)
-    text_input.set(inv_power)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        val=eval(text_input.get())
+        inv_power=math.pow(val,-1)
+        text_input.set(inv_power)
+        result=True
 
 def factclick():
     global result
-    val=eval(text_input.get())
-    fact=math.factorial(val)
-    text_input.set(fact)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        val=eval(text_input.get())
+        fact=math.factorial(val)
+        text_input.set(fact)
+        result=True
 
 def left_parclick():
     global result
@@ -259,22 +319,30 @@ def right_parclick():
 
 def sqrtclick():
     global result
-    val=eval(text_input.get())
-    SR=math.sqrt(val)
-    text_input.set(SR)
-    result=True
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        val=eval(text_input.get())
+        SR=math.sqrt(val)
+        text_input.set(SR)
+        result=True
 
 def cbrtclick():
     global result
-    val=eval(text_input.get())
-    CR=math.cbrt(val)
-    text_input.set(CR)
-    result=True 
+    if text_input.get()=='Error':
+        text_input.set('Error')
+    else:
+        val=eval(text_input.get())
+        CR=math.cbrt(val)
+        text_input.set(CR)
+        result=True 
 
 def powerclick():
     global result
     if text_input.get()=='':
         text_input.set('')
+    elif text_input.get()=='Error':
+        text_input.set('Error')
     else:
         text_input.set(text_input.get()+'^')
         result=False       
