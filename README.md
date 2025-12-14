@@ -6,8 +6,10 @@ This is a scientific calculator created using tkinter library of python.The scre
 
 <br>
 How to Run the Scientific Calculator
-<br>
+<br><br>
 
 1.Download the latest .zip file for Windows.
+<br>
 2.Extract the contents of the zip file to a folder.
+<br>
 3.Run the .exe file to run the scientific Calculator.
