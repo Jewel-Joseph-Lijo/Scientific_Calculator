@@ -153,8 +153,8 @@ def delclick():
         str1=""
         for i in L1:
             str1+=i
-        text_input.set(str1) 
-
+        text_input.set(str1)
+    
 def modclick():
     global result
     if text_input.get()=='Error':
@@ -350,59 +350,60 @@ def powerclick():
 window=Tk()
 window.geometry("447x568")
 window.title("Scientific Calculator")
-window.configure(bg="black")
+window.configure(bg="#121212")
 
 text_input = StringVar()
-display_screen = Entry(window, font=('sans-serif', 20, 'bold'), textvariable=text_input,bd=5, insertwidth=2, bg='white', justify='right').grid(columnspan=5, padx = 10, pady = 15)
+display_screen = Entry(window, font=('sans-serif', 20, 'bold'), textvariable=text_input,bd=5, insertwidth=2,fg='#1B5E20', readonlybackground='#E8F5E9', justify='right', state='readonly').grid(columnspan=5, padx = 10, pady = 15)
 
-button_additional = {'bd':5, 'fg':'white', 'bg':'green', 'font':('sans-serif', 20, 'bold')}
-button_main = {'bd':5, 'fg':'#000', 'bg':'yellow', 'font':('sans-serif', 20, 'bold')}
+button_scientific_advanced = {'bd':5, 'fg':'#BDBDBD', 'bg':'#2E2E2E', 'font':('sans-serif', 20, 'bold')}
+button_numbers = {'bd':5, 'fg':'#FFFFFF', 'bg':'#1C1C1C', 'font':('sans-serif', 20, 'bold')}
+button_operators = {'bd':5, 'fg':'#FFFFFF', 'bg':'#FF9500', 'font':('sans-serif', 20, 'bold')}
 
-modbutton = Button(window, button_additional, text='mod',command=modclick).grid(row=1, column=0, sticky="nsew")
-pibutton = Button(window, button_additional, text='π',command=piclick).grid(row=1, column=1, sticky="nsew")
-exbutton = Button(window, button_additional, text='e^x',command=exclick).grid(row=1, column=2, sticky="nsew")
-log_base10button = Button(window, button_additional, text='log\u2081\u2080',font=('sans-serif', 16, 'bold'),command=log10clicked).grid(row=1, column=3, sticky="nsew")
-log_baseebutton = Button(window, button_additional, text=' log  ',command=logclicked).grid(row=1, column=4, sticky="nsew")
+modbutton = Button(window, button_scientific_advanced, text='mod',command=modclick).grid(row=1, column=0, sticky="nsew")
+pibutton = Button(window, button_scientific_advanced, text='π',command=piclick).grid(row=1, column=1, sticky="nsew")
+exbutton = Button(window, button_scientific_advanced, text='e^x',command=exclick).grid(row=1, column=2, sticky="nsew")
+log_base10button = Button(window, button_scientific_advanced, text='log\u2081\u2080',font=('sans-serif', 16, 'bold'),command=log10clicked).grid(row=1, column=3, sticky="nsew")
+log_baseebutton = Button(window, button_scientific_advanced, text=' log  ',command=logclicked).grid(row=1, column=4, sticky="nsew")
 
-sinbutton = Button(window, button_additional, text='sin',command=sinclick).grid(row=2, column=0, sticky="nsew")
-cosbutton = Button(window, button_additional, text='cos',command=cosclick).grid(row=2, column=1, sticky="nsew")
-tanbutton = Button(window, button_additional, text='tan',command=tanclick).grid(row=2, column=2, sticky="nsew")
-cotbutton = Button(window, button_additional, text='cot',command=cotclick).grid(row=2, column=3, sticky="nsew")
-cosecbutton = Button(window, button_additional, text='cosec',command=cosecclick).grid(row=2, column=4, sticky="nsew")
+sinbutton = Button(window, button_scientific_advanced, text='sin',command=sinclick).grid(row=2, column=0, sticky="nsew")
+cosbutton = Button(window, button_scientific_advanced, text='cos',command=cosclick).grid(row=2, column=1, sticky="nsew")
+tanbutton = Button(window, button_scientific_advanced, text='tan',command=tanclick).grid(row=2, column=2, sticky="nsew")
+cotbutton = Button(window, button_scientific_advanced, text='cot',command=cotclick).grid(row=2, column=3, sticky="nsew")
+cosecbutton = Button(window, button_scientific_advanced, text='cosec',command=cosecclick).grid(row=2, column=4, sticky="nsew")
 
-secbutton = Button(window, button_additional, text='sec',command=secclick).grid(row=3, column=0, sticky="nsew")
-squarebutton= Button(window, button_additional, text='x\u00B2',command=squareclick).grid(row=3, column=1, sticky="nsew")
-cubebutton= Button(window, button_additional, text='x\u00B3',command=cubeclick).grid(row=3, column=2, sticky="nsew")
-inv_powerbutton = Button(window, button_additional, text='x\u207b\xb9',command=inv_powerclick).grid(row=3, column=3, sticky="nsew")
-factorialbutton = Button(window, button_additional, text='X!',command=factclick).grid(row=3, column=4, sticky="nsew")
+secbutton = Button(window, button_scientific_advanced, text='sec',command=secclick).grid(row=3, column=0, sticky="nsew")
+squarebutton= Button(window, button_scientific_advanced, text='x\u00B2',command=squareclick).grid(row=3, column=1, sticky="nsew")
+cubebutton= Button(window, button_scientific_advanced, text='x\u00B3',command=cubeclick).grid(row=3, column=2, sticky="nsew")
+inv_powerbutton = Button(window, button_scientific_advanced, text='x\u207b\xb9',command=inv_powerclick).grid(row=3, column=3, sticky="nsew")
+factorialbutton = Button(window, button_scientific_advanced, text='X!',command=factclick).grid(row=3, column=4, sticky="nsew")
 
-left_parbutton = Button(window, button_additional, text='(',command=left_parclick).grid(row=4, column=0, sticky="nsew")
-right_parbutton = Button(window, button_additional, text=')',command=right_parclick).grid(row=4, column=1, sticky="nsew")   
-sqrtbutton = Button(window, button_additional, text='\u221A',command=sqrtclick).grid(row=4, column=2, sticky="nsew")
-cbrtbutton = Button(window, button_additional, text='\u00B3\u221A',command=cbrtclick).grid(row=4, column=3, sticky="nsew")
-powerbutton = Button(window, button_additional, text='^',command=powerclick).grid(row=4, column=4, sticky="nsew")
+left_parbutton = Button(window, button_scientific_advanced, text='(',command=left_parclick).grid(row=4, column=0, sticky="nsew")
+right_parbutton = Button(window, button_scientific_advanced, text=')',command=right_parclick).grid(row=4, column=1, sticky="nsew")   
+sqrtbutton = Button(window, button_scientific_advanced, text='\u221A',command=sqrtclick).grid(row=4, column=2, sticky="nsew")
+cbrtbutton = Button(window, button_scientific_advanced, text='\u00B3\u221A',command=cbrtclick).grid(row=4, column=3, sticky="nsew")
+powerbutton = Button(window, button_scientific_advanced, text='^',command=powerclick).grid(row=4, column=4, sticky="nsew")
 
-sevenbutton = Button(window, button_main, text='7',command=sevenclick).grid(row=5, column=0, sticky="nsew")
-eightbutton = Button(window, button_main, text='8',command=eightclick).grid(row=5, column=1, sticky="nsew")
-ninebutton = Button(window, button_main, text='9',command=nineclick).grid(row=5, column=2, sticky="nsew")
-mulbutton = Button(window, button_main, text='x',command=mulclick).grid(row=5, column=3, sticky="nsew")
-divbutton = Button(window, button_main, text='÷',command=divclick).grid(row=5, column=4, sticky="nsew")
+sevenbutton = Button(window, button_numbers, text='7',command=sevenclick).grid(row=5, column=0, sticky="nsew")
+eightbutton = Button(window, button_numbers, text='8',command=eightclick).grid(row=5, column=1, sticky="nsew")
+ninebutton = Button(window, button_numbers, text='9',command=nineclick).grid(row=5, column=2, sticky="nsew")
+mulbutton = Button(window, button_operators, text='x',command=mulclick).grid(row=5, column=3, sticky="nsew")
+divbutton = Button(window, button_operators, text='÷',command=divclick).grid(row=5, column=4, sticky="nsew")
 
-fourbutton = Button(window, button_main, text='4',command=fourclick).grid(row=6, column=0, sticky="nsew")
-fivebutton = Button(window, button_main, text='5',command=fiveclick).grid(row=6, column=1, sticky="nsew")
-sixbutton = Button(window, button_main, text='6',command=sixclick).grid(row=6, column=2, sticky="nsew")
-plusbutton = Button(window, button_main, text='+',command=plusclick).grid(row=6, column=3, sticky="nsew")
-minusbutton = Button(window, button_main, text='-',command=minusclick).grid(row=6, column=4, sticky="nsew")
+fourbutton = Button(window, button_numbers, text='4',command=fourclick).grid(row=6, column=0, sticky="nsew")
+fivebutton = Button(window, button_numbers, text='5',command=fiveclick).grid(row=6, column=1, sticky="nsew")
+sixbutton = Button(window, button_numbers, text='6',command=sixclick).grid(row=6, column=2, sticky="nsew")
+plusbutton = Button(window, button_operators, text='+',command=plusclick).grid(row=6, column=3, sticky="nsew")
+minusbutton = Button(window, button_operators, text='-',command=minusclick).grid(row=6, column=4, sticky="nsew")
 
-onebutton = Button(window, button_main, text='1',command=oneclick).grid(row=7, column=0, sticky="nsew")
-twobutton= Button(window, button_main, text='2',command=twoclick).grid(row=7, column=1, sticky="nsew")
-threebutton = Button(window, button_main, text='3',command=threeclick).grid(row=7, column=2, sticky="nsew")
-equalbutton = Button(window, button_main, text='=',command=equalclick).grid(row=7,columnspan=2,column=3, sticky="nsew")
+onebutton = Button(window, button_numbers, text='1',command=oneclick).grid(row=7, column=0, sticky="nsew")
+twobutton= Button(window, button_numbers, text='2',command=twoclick).grid(row=7, column=1, sticky="nsew")
+threebutton = Button(window, button_numbers, text='3',command=threeclick).grid(row=7, column=2, sticky="nsew")
+equalbutton = Button(window, button_operators, text='=',command=equalclick).grid(row=7,columnspan=2,column=3, sticky="nsew")
 
-zerobutton = Button(window, button_main, text='0',command=zeroclick).grid(row=8, column=0, sticky="nsew")
-pointbutton = Button(window, button_main, text='.',command=pointclick).grid(row=8, column=1, sticky="nsew")
-delbutton = Button(window, bd=5, fg='#000', font=('sans-serif', 20, 'bold'),text='DEL',bg='orange',command=delclick).grid(row=8, column=2, sticky="nsew")
-clearbutton = Button(window, bd=5, fg='#000', font=('sans-serif', 20, 'bold'),text='Clear', bg='orange',command=clearclick).grid(row=8, column=3,columnspan=2, sticky="nsew")
+zerobutton = Button(window,button_numbers, text='0',command=zeroclick).grid(row=8, column=0, sticky="nsew")
+pointbutton = Button(window, button_numbers, text='.',command=pointclick).grid(row=8, column=1, sticky="nsew")
+delbutton = Button(window, bd=5, fg='#FFFFFF', font=('sans-serif', 20, 'bold'),text='DEL',bg='#E53935',command=delclick).grid(row=8, column=2, sticky="nsew")
+clearbutton = Button(window, bd=5, fg='#FFFFFF', font=('sans-serif', 20, 'bold'),text='Clear', bg='#E53935',command=clearclick).grid(row=8, column=3,columnspan=2, sticky="nsew")
 
 
 window.mainloop()
