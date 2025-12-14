@@ -5,7 +5,7 @@ This is a scientific calculator created using tkinter library of python.The scre
 <img width="668" height="890" alt="Screenshot 2025-12-14 173741" src="https://github.com/user-attachments/assets/f827f9da-2a5f-4075-b40b-5b24c4b85fe7" />
 
 <br><br><br><br>
-How to Run the Scientific Calculator
+<h2>How to Run the Scientific Calculator<h2></h2>
 <br><br>
 
 1.Download the latest .zip file for Windows.
